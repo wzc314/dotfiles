@@ -135,3 +135,11 @@ filetype indent on
 filetype plugin on
 
 set laststatus=2
+
+nnoremap <silent> [b :bprevious<CR>
+nnoremap <silent> ]b :bnext<CR>
+nnoremap <silent> [B :bfirst<CR>
+nnoremap <silent> ]B :blast<CR>
+
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
