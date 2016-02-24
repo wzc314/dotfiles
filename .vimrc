@@ -45,7 +45,7 @@ Plugin 'suan/vim-instant-markdown'
 let g:instant_markdown_autostart=0
 "PowerLine插件 状态栏增强展示
 Plugin 'Lokaltog/vim-powerline'
-let g:Powline_symbols='fancy'
+"let g:Powerline_symbols='fancy'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
