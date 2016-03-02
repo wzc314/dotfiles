@@ -46,6 +46,8 @@ let g:instant_markdown_autostart=0
 "PowerLine插件 状态栏增强展示
 Plugin 'Lokaltog/vim-powerline'
 "let g:Powerline_symbols='fancy'
+"文件管理插件NERDTree
+Plugin 'scrooloose/nerdtree'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -141,5 +143,9 @@ nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [B :bfirst<CR>
 nnoremap <silent> ]B :blast<CR>
 
+nnoremap <C-n> :NERDTreeToggle<CR>
+
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
+
+map ,dt a<C-R>=strftime('%Y-%m-%d %H:%M:%S')<CR>
