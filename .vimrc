@@ -1,7 +1,7 @@
 "    Author:   Kris Wang
 "    Version:  1.0.0
 "    Email:    wzc314@qq.com
-"    Blog: http://wzc314.github.io
+"    Blog: http://wangzicong.cn
 "    Date: 2016-02-10
 "=============================================
 

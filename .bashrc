@@ -117,11 +117,11 @@ if ! shopt -oq posix; then
 fi
 
 export PATH="$PATH:$HOME/.rvm/bin:$HOME/.rvm/rubies/ruby-2.2.1/bin" # Add RVM to PATH for scripting
-
-set -o vi
+. $HOME/.asdf/asdf.sh
 
 # User specific aliases and functions
 
+set -o vi
 bind -m vi-insert '\c-l':clear-screen
 bind -m vi-insert '\c-x':vi-movement-mode
 bind -m vi-insert '\c-e':end-of-line
