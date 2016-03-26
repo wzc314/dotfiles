@@ -48,6 +48,8 @@ Plugin 'Lokaltog/vim-powerline'
 "let g:Powerline_symbols='fancy'
 "文件管理插件NERDTree
 Plugin 'scrooloose/nerdtree'
+"Elixir插件
+Plugin 'elixir-lang/vim-elixir'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
