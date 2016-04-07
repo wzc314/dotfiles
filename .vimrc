@@ -50,6 +50,10 @@ Plugin 'Lokaltog/vim-powerline'
 Plugin 'scrooloose/nerdtree'
 "Elixir插件
 Plugin 'elixir-lang/vim-elixir'
+"Taglist插件
+Plugin 'taglist.vim'
+"ctags插件
+Plugin 'ctags.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -146,8 +150,23 @@ nnoremap <silent> [B :bfirst<CR>
 nnoremap <silent> ]B :blast<CR>
 
 nnoremap <C-n> :NERDTreeToggle<CR>
+"close vim if the only window left open is a NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+"Taglist配置
+let Tlist_Use_Right_Window=1
+let Tlist_WinWidth=36
+let Tlist_Show_One_File=1
+let Tlist_Exit_OnlyWindow=1
+nnoremap <C-p> :TlistToggle<CR>
+"ctags配置
+"set tags=/home/wangzicong/sniper/common/tags
 
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
-
+"插入当前时间
 map ,dt a<C-R>=strftime('%Y-%m-%d %H:%M:%S')<CR>
+"比较当前文件与原始文件的差异
+if !exists(":DiffOrig")
+    command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
+            \ | wincmd p | diffthis
+endif
