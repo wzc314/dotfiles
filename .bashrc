@@ -82,13 +82,14 @@ if [ -x /usr/bin/dircolors ]; then
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
+    alias vi='vim'
 fi
 
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
-alias ll='ls -alF'
+alias ll='ls -ahlF'
 alias la='ls -A'
 alias l='ls -CF'
 
@@ -117,7 +118,12 @@ if ! shopt -oq posix; then
 fi
 
 export PATH="$PATH:$HOME/.rvm/bin:$HOME/.rvm/rubies/ruby-2.2.1/bin:$HOME/.elixir/bin" # Add RVM to PATH for scripting
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/lib"
 . $HOME/.asdf/asdf.sh
+
+export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/lib"
+export SWIG="/usr/local/bin/swig"
 
 # User specific aliases and functions
 

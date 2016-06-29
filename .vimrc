@@ -44,8 +44,11 @@ let g:vim_markdown_folding_disabled=1
 Plugin 'suan/vim-instant-markdown'
 let g:instant_markdown_autostart=0
 "PowerLine插件 状态栏增强展示
-Plugin 'Lokaltog/vim-powerline'
-"let g:Powerline_symbols='fancy'
+Plugin 'vim-airline/vim-airline'
+"let g:airline_powerline_fonts=1
+let g:airline#extensions#tabline#enabled=1
+let g:powerlineish=1
+Plugin 'vim-airline/vim-airline-themes'
 "文件管理插件NERDTree
 Plugin 'scrooloose/nerdtree'
 "Elixir插件
@@ -159,7 +162,7 @@ let Tlist_Show_One_File=1
 let Tlist_Exit_OnlyWindow=1
 nnoremap <C-p> :TlistToggle<CR>
 "ctags配置
-"set tags=/home/wangzicong/sniper/common/tags
+"set tags=/home/wangzicong/gem5/build/ALPHA_MESI_Two_Level/tags
 
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
