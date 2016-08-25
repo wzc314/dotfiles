@@ -92,6 +92,8 @@ fi
 alias ll='ls -ahlF'
 alias la='ls -A'
 alias l='ls -CF'
+alias gdb='/usr/local/bin/gdb -tui'
+alias v='vi -S ~/Documents/Session.vim'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -118,7 +120,6 @@ if ! shopt -oq posix; then
 fi
 
 export PATH="$PATH:$HOME/.rvm/bin:$HOME/.rvm/rubies/ruby-2.2.1/bin:$HOME/.elixir/bin" # Add RVM to PATH for scripting
-export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/lib"
 . $HOME/.asdf/asdf.sh
 
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"

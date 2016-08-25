@@ -1,0 +1,9 @@
+set editing-mode vi
+control-n: next-history
+control-p: previous-history
+control-e: end-of-line
+control-a: beginning-of-line
+control-f: forward-char
+control-b: backward-char
+control-k: kill-line
+control-d: delete-char
