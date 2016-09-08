@@ -1,0 +1,11 @@
+#!/bin/bash
+alias ls='ls --color=auto'
+alias grep='grep --color=auto -n'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias vi='vim'
+alias ll='ls -ahlF'
+alias la='ls -A'
+alias l='ls -CF'
+alias gdb='/usr/local/bin/gdb -tui'
+alias v='vi -S ~/Documents/Session.vim'

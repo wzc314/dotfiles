@@ -149,10 +149,10 @@ nnoremap <Leader>x :qa<CR>
 nnoremap <Leader>y ggyG
 nnoremap <Leader>p ggVGP
 nnoremap <Leader>g :YcmCompleter GoTo<CR>
-nnoremap <Leader>v <C-w>v
-nnoremap <Leader>o <C-w>o
+nnoremap <Leader>v :wincmd v<CR>
+nnoremap <Leader>o :wincmd o<CR>
 nnoremap <Leader>s :source ~/.vimrc<CR>
 nnoremap <Leader>b :windo set scrollbind!<CR>
 nnoremap <Leader>m :mksession! ~/Documents/Session.vim<CR>
 nnoremap <Leader>. :<C-p><CR>
-nnoremap <Leader><Leader> <C-w><C-w>
+nnoremap <Leader><Leader> :wincmd w<CR>
