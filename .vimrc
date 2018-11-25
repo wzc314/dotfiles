@@ -1,3 +1,4 @@
+let hostname=system('hostname')
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -15,27 +16,70 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdtree'
 let NERDTreeShowLineNumbers=1
 let NERDTreeWinSize=40
-Plugin 'elixir-lang/vim-elixir'
 Plugin 'qpkorr/vim-bufkill'
 Plugin 'majutsushi/tagbar'
 let g:tagbar_iconchars = ['▸', '▾']
 let g:tagbar_map_showproto = "w"
 let g:tagbar_map_nexttag = ""
 let g:tagbar_map_prevtag = ""
+
+if hostname=="109-server"
+    Plugin 'elixir-lang/vim-elixir'
+elseif hostname=="smart-laptop"
+    Plugin 'fatih/vim-go'
+    let g:tagbar_type_go = {
+                \ 'ctagstype' : 'go',
+                \ 'kinds'     : [
+                \ 'p:package',
+                \ 'i:imports:1',
+                \ 'c:constants',
+                \ 'v:variables',
+                \ 't:types',
+                \ 'n:interfaces',
+                \ 'w:fields',
+                \ 'e:embedded',
+                \ 'm:methods',
+                \ 'r:constructor',
+                \ 'f:functions'
+                \ ],
+                \ 'sro' : '.',
+                \ 'kind2scope' : {
+                \ 't' : 'ctype',
+                \ 'n' : 'ntype'
+                \ },
+                \ 'scope2kind' : {
+                \ 'ctype' : 't',
+                \ 'ntype' : 'n'
+                \ },
+                \ 'ctagsbin'  : 'gotags',
+                \ 'ctagsargs' : '-sort -silent'
+                \ }
+endif
+
 Plugin 'Raimondi/delimitMate'
 Plugin 'FSwitch'
 au! BufEnter *.cc let b:fswitchdst = 'hh' | let b:fswitchlocs = '.'
 au! BufEnter *.hh let b:fswitchdst = 'cc' | let b:fswitchlocs = '.'
 Plugin 'Valloric/YouCompleteMe'
-"let g:ycm_global_ycm_extra_conf='/home/wangzicong/gem5-projects/.ycm_extra_conf.py'
+let g:ycm_key_list_select_completion = ['<c-n>']
+let g:ycm_key_list_previous_completion = ['<c-p>']
 let g:ycm_key_detailed_diagnostics=''
 let g:ycm_show_diagnostics_ui=0
 let g:ycm_add_preview_to_completeopt=0
 set completeopt-=preview
-Plugin 'rdnetto/YCM-Generator'
+Plugin 'SirVer/ultisnips'
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+"set runtimepath-=~/.vim/bundle/YouCompleteMe
 
 "配置backspace键工作方式
 set backspace=indent,eol,start
@@ -91,7 +135,7 @@ filetype indent on
 filetype plugin on
 set laststatus=2
 "ctags配置
-"set tags=/home/wangzicong/gem5-garnet2.0/build/Garnet_standalone/tags
+"set tags=
 
 highlight Search term=standout ctermfg=Black ctermbg=Yellow
 highlight DiffAdd term=bold ctermfg=Green ctermbg=0 guibg=LightBlue
@@ -108,6 +152,7 @@ nnoremap <C-h> :bprevious<CR>
 nnoremap <C-l> :bnext<CR>
 nnoremap <C-n> :NERDTreeToggle<CR>
 nnoremap <C-p> :TagbarToggle<CR>
+nnoremap gt :YcmCompleter GoTo<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>e :e!<CR>
 nnoremap <Leader>n :noh<CR>
@@ -118,11 +163,15 @@ nnoremap <Leader>P "+P
 nnoremap <Leader>y "+y
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>x :qa<CR>
-nnoremap <Leader>g :YcmCompleter GoTo<CR>
 nnoremap <Leader>v :wincmd v<CR>
 nnoremap <Leader>o :wincmd o<CR>
-nnoremap <Leader>s :source ~/.vimrc<CR>
+nnoremap <Leader>s :wincmd s<CR>
 nnoremap <Leader>b :windo set scrollbind!<CR>
 nnoremap <Leader>m :mksession! ~/Documents/Session.vim<CR>
 nnoremap <Leader>. :<C-p><CR>
 nnoremap <Leader><Leader> :wincmd w<CR>
+
+au filetype go nnoremap gr :GoRun<CR>
+au filetype go nnoremap gn :GoRename<CR>
+au filetype go nnoremap gb :GoBuild<CR>
+au filetype go nnoremap gi :GoImports<CR>
