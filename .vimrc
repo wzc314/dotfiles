@@ -26,11 +26,14 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'FSwitch'
 au! BufEnter *.cc let b:fswitchdst = 'hh' | let b:fswitchlocs = '.'
 au! BufEnter *.hh let b:fswitchdst = 'cc' | let b:fswitchlocs = '.'
+au! BufEnter *.cpp let b:fswitchdst = 'hpp' | let b:fswitchlocs = '.'
+au! BufEnter *.hpp let b:fswitchdst = 'cpp' | let b:fswitchlocs = '.'
 Plugin 'Valloric/YouCompleteMe'
 "let g:ycm_global_ycm_extra_conf='/home/wangzicong/gem5-projects/.ycm_extra_conf.py'
 let g:ycm_key_detailed_diagnostics=''
 let g:ycm_show_diagnostics_ui=0
 let g:ycm_add_preview_to_completeopt=0
+let g:ycm_collect_identifiers_from_tags_files=1 
 set completeopt-=preview
 Plugin 'rdnetto/YCM-Generator'
 
@@ -114,11 +117,13 @@ nnoremap <Leader>n :noh<CR>
 nnoremap <Leader>a :FSHere<CR>
 nnoremap <Leader>z @z
 nnoremap <Leader>p "+p
+nnoremap <Leader>r :set wrap!<CR>
 nnoremap <Leader>P "+P
+nnoremap <Leader>g 1<C-g>
 nnoremap <Leader>y "+y
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>x :qa<CR>
-nnoremap <Leader>g :YcmCompleter GoTo<CR>
+"nnoremap <Leader>g :YcmCompleter GoTo<CR>
 nnoremap <Leader>v :wincmd v<CR>
 nnoremap <Leader>o :wincmd o<CR>
 nnoremap <Leader>s :source ~/.vimrc<CR>
@@ -126,3 +131,4 @@ nnoremap <Leader>b :windo set scrollbind!<CR>
 nnoremap <Leader>m :mksession! ~/Documents/Session.vim<CR>
 nnoremap <Leader>. :<C-p><CR>
 nnoremap <Leader><Leader> :wincmd w<CR>
+"nnoremap <Leader>1 1<C-g>
