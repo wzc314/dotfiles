@@ -34,6 +34,7 @@ function init_109 {
     export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
     export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/lib:/usr/local/cuda-7.5/lib64:/usr/local/lib/cuda/lib64"
     export SWIG="/usr/local/bin/swig"
+    export EDITOR="vimx"
 }
 
 case `hostname` in
@@ -45,8 +46,8 @@ esac
 shopt -s histappend
 # don't put duplicate lines or lines starting with space in the history.
 HISTCONTROL=ignoreboth
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=3000
+HISTFILESIZE=3000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -55,6 +56,8 @@ shopt -s checkwinsize
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
+
+stty stop 'undef'
 
 set -o vi
 bind -m vi-insert '\c-l':clear-screen

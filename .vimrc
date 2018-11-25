@@ -60,12 +60,15 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'FSwitch'
 au! BufEnter *.cc let b:fswitchdst = 'hh' | let b:fswitchlocs = '.'
 au! BufEnter *.hh let b:fswitchdst = 'cc' | let b:fswitchlocs = '.'
+au! BufEnter *.cpp let b:fswitchdst = 'hpp' | let b:fswitchlocs = '.'
+au! BufEnter *.hpp let b:fswitchdst = 'cpp' | let b:fswitchlocs = '.'
 Plugin 'Valloric/YouCompleteMe'
 let g:ycm_key_list_select_completion = ['<c-n>']
 let g:ycm_key_list_previous_completion = ['<c-p>']
 let g:ycm_key_detailed_diagnostics=''
 let g:ycm_show_diagnostics_ui=0
 let g:ycm_add_preview_to_completeopt=0
+let g:ycm_collect_identifiers_from_tags_files=1 
 set completeopt-=preview
 Plugin 'SirVer/ultisnips'
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
@@ -159,7 +162,9 @@ nnoremap <Leader>n :noh<CR>
 nnoremap <Leader>a :FSHere<CR>
 nnoremap <Leader>z @z
 nnoremap <Leader>p "+p
+nnoremap <Leader>r :set wrap!<CR>
 nnoremap <Leader>P "+P
+nnoremap <Leader>g 1<C-g>
 nnoremap <Leader>y "+y
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>x :qa<CR>
