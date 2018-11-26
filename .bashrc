@@ -37,8 +37,9 @@ function init_109 {
     export EDITOR="vimx"
 }
 
-case `hostname` in
+case $(hostname) in
     109-server) init_109;;
+    smartMBP) ;;
     *) ;;
 esac
 

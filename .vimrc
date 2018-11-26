@@ -1,4 +1,4 @@
-let hostname=system('hostname')
+let hostname=substitute(system('hostname'), '\n', '', '')
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -25,7 +25,7 @@ let g:tagbar_map_prevtag = ""
 
 if hostname=="109-server"
     Plugin 'elixir-lang/vim-elixir'
-elseif hostname=="smart-laptop"
+elseif hostname=="smart-laptop" || hostname=="smartMBP"
     Plugin 'fatih/vim-go'
     let g:tagbar_type_go = {
                 \ 'ctagstype' : 'go',
